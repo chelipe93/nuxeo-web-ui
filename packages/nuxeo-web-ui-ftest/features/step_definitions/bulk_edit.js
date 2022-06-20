@@ -6,7 +6,7 @@ Then('I click the bulk edit button with {string} layout', function(layoutName) {
 
 Then('I can bulk edit multiple properties in {string} layout:', function(layoutName, table) {
   const action = this.ui.bulkEdit(`nuxeo-edit-documents-button[layout="${layoutName}"]`);
-  action.dialog.waitForDisplayed();
+  action.dialog.waitForDisplayed({ timeout: 10000 });
   action.editMultipleOptions(table);
   action.saveButton.click();
 });
